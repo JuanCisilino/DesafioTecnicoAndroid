@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DesafioTecnicoAndroid</string>
+    <string name="nombre_persona">NombrePersona</string>
 </resources>
