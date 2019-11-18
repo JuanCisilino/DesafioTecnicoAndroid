@@ -3,6 +3,7 @@ package com.fluxit.desafiotecnicoandroid.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Constraints;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,38 +17,24 @@ import com.fluxit.desafiotecnicoandroid.utils.ResultListener;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AdapterPersona.ListenerDeAdapter{
+public class MainActivity extends AppCompatActivity{
 
-    private RecyclerView contenedorRecyclerview;
-    private AdapterPersona adapterPersona;
-    private ControllerPersona controllerPersona;
-    Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        contenedorRecyclerview = findViewById(R.id.activity_main_recyclerview);
-        adapterPersona = new AdapterPersona(this);
-        controllerPersona = new ControllerPersona();
 
-        llamarLista();
-
-        contenedorRecyclerview.setLayoutManager(new LinearLayoutManager(this, contenedorRecyclerview.VERTICAL,false));
-        contenedorRecyclerview.setAdapter(adapterPersona);
-    }
-
-    @Override
-    public void informarConsulta(Persona persona) {
+        pegarFragment(new FragmentListaDePersonas());
 
     }
 
-    public void llamarLista(){
-        controllerPersona.traerListaDePersonas(new ResultListener<List<Persona>>() {
-            @Override
-            public void finish(List<Persona> result) {
-                adapterPersona.setPersonaList(result);
-            }
-        });
+    private void pegarFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.mainActivity_contenedorFragment, fragment)
+                .addToBackStack(null)
+                .commit();
     }
+
 }

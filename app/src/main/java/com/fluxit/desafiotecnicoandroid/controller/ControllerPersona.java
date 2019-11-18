@@ -18,9 +18,6 @@ public class ControllerPersona {
             public void finish(List<Persona> result) {
                 if (result != null) {
                     listenerDeLaVista.finish(result);
-                    System.out.println("Exito");
-                }else {
-                    System.out.println("Error");
                 }
             }
         });

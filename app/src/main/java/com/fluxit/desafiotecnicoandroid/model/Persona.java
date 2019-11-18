@@ -10,14 +10,18 @@ public class Persona implements Serializable {
     private List<Persona> location;
     private String email;
     private List<Persona> id;
+    private List<Persona> dob;
     private List<Persona> picture;
     private String nat;
-
+    private String first;
+    private String last;
+    private String thumbnail;
 
     public Persona() {
     }
 
-    public Persona(String gender, List<Persona> name, List<Persona> location, String email, List<Persona> id, List<Persona> picture, String nat) {
+    public Persona(String gender, List<Persona> dob, List<Persona> name, List<Persona> location,
+                   String email, List<Persona> id, List<Persona> picture, String nat) {
         this.gender = gender;
         this.name = name;
         this.location = location;
@@ -25,6 +29,10 @@ public class Persona implements Serializable {
         this.id = id;
         this.picture = picture;
         this.nat = nat;
+        this.dob = dob;
+        this.first = first;
+        this.last = last;
+        this.thumbnail = thumbnail;
     }
 
     public String getGender() {
@@ -35,12 +43,28 @@ public class Persona implements Serializable {
         this.gender = gender;
     }
 
+    public List<Persona> getDob() {
+        return dob;
+    }
+
     public List<Persona> getName() {
         return name;
     }
 
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
     public void setName(List<Persona> name) {
         this.name = name;
+    }
+
+    public String getFirst() {
+        return first;
+    }
+
+    public String getLast() {
+        return last;
     }
 
     public List<Persona> getLocation() {

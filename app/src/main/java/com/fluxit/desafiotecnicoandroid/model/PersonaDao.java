@@ -15,7 +15,6 @@ import static android.widget.Toast.LENGTH_LONG;
 public class PersonaDao extends RetrofitPersonaDao {
 
     public static final String BASE_URL = "https://randomuser.me/";
-    public static final String PERSONASELECCIONADA = "Persona";
 
     public PersonaDao() {
         super(BASE_URL);
