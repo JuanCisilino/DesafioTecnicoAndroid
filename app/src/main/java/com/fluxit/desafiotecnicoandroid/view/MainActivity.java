@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import com.fluxit.desafiotecnicoandroid.R;
 import com.fluxit.desafiotecnicoandroid.controller.ControllerPersona;
@@ -17,7 +18,7 @@ import com.fluxit.desafiotecnicoandroid.utils.ResultListener;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements FragmentListaDePersonas.ListenerDeFragment{
 
 
     @Override
@@ -32,9 +33,13 @@ public class MainActivity extends AppCompatActivity{
     private void pegarFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.mainActivity_contenedorFragment, fragment)
+                .replace(R.id.mainActivity_contenedorFragment, fragment)
                 .addToBackStack(null)
                 .commit();
     }
 
+    @Override
+    public void recibirPersona(Persona persona) {
+
+    }
 }

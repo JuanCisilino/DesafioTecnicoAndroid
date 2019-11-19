@@ -73,9 +73,10 @@ public class AdapterPersona extends RecyclerView.Adapter<AdapterPersona.ViewHold
         }
 
         public void cargarPersona(Persona persona){
-            Glide.with(imagenDePersona.getContext()).load(persona.getPicture().get(10).getThumbnail()).into(imagenDePersona);
-            textViewNombre.setText(persona.getName().get(0).getFirst());
-            textViewApellido.setText("Prueba");
+            Glide.with(imagenDePersona.getContext()).load(persona.getPicture().getThumbnail())
+                    .placeholder(R.drawable.loading).into(imagenDePersona);
+            textViewNombre.setText(persona.getName().getFirst());
+            textViewApellido.setText(persona.getName().getLast());
         }
 
     }

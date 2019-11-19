@@ -14,7 +14,7 @@ import static android.widget.Toast.LENGTH_LONG;
 
 public class PersonaDao extends RetrofitPersonaDao {
 
-    public static final String BASE_URL = "https://randomuser.me/";
+    public static final String BASE_URL = "https://randomuser.me/api/";
 
     public PersonaDao() {
         super(BASE_URL);
@@ -32,7 +32,6 @@ public class PersonaDao extends RetrofitPersonaDao {
 
             @Override
             public void onFailure(Call<ContenedorPersona> call, Throwable t) {
-
             }
         });
 

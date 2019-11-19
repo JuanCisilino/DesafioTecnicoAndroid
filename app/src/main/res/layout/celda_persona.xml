@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/celda_persona_coordinatorlayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/celda_persona_coordinatorlayout">
+    android:background="@color/colorPrimary">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -17,7 +27,7 @@
                 android:id="@+id/celda_persona_imageview"
                 android:layout_width="80dp"
                 android:layout_height="75dp"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="75dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/loading" />
 
@@ -26,29 +36,27 @@
                 android:id="@+id/celda_persona_textviewNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/celda_persona_imageview"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/celda_persona_imageview"
                 android:text="@string/nombre_persona"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/celda_persona_textviewApellido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/celda_persona_imageview"
                 android:layout_below="@+id/celda_persona_textviewNombre"
                 android:layout_marginLeft="60dp"
+                android:layout_toRightOf="@+id/celda_persona_imageview"
                 android:text="@string/nombre_persona"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </RelativeLayout>
 
 
-
+    </androidx.cardview.widget.CardView>
 
 
 </LinearLayout>

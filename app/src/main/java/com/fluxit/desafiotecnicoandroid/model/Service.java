@@ -6,6 +6,6 @@ import retrofit2.http.Query;
 
 public interface Service {
 
-    @GET("api/?results=20")
+    @GET("?results=20")
     Call<ContenedorPersona> PedidoListaDePersonas();
 }

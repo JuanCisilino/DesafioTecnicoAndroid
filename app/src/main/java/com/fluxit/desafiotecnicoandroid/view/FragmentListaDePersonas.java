@@ -1,8 +1,10 @@
 package com.fluxit.desafiotecnicoandroid.view;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,13 +36,18 @@ public class FragmentListaDePersonas extends Fragment implements AdapterPersona.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_lista_de_personas, container, false);
+
         contenedorRecyclerview = view.findViewById(R.id.contenedor_recycler_fragmentLista);
         adapterPersona = new AdapterPersona(this);
         controllerPersona = new ControllerPersona();
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+
+
         llamarLista();
-        contenedorRecyclerview.setLayoutManager(new LinearLayoutManager(getContext(),
-                RecyclerView.VERTICAL,false));
+
+        contenedorRecyclerview.setLayoutManager(linearLayoutManager);
         contenedorRecyclerview.setAdapter(adapterPersona);
+
         return view;
     }
 
@@ -55,12 +62,18 @@ public class FragmentListaDePersonas extends Fragment implements AdapterPersona.
     }
 
     @Override
-    public void informarConsulta(Persona persona) {
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        listenerDeFragment = (ListenerDeFragment) context;
+    }
 
+
+    @Override
+    public void informarConsulta(Persona persona) {
+        listenerDeFragment.recibirPersona(persona);
     }
 
     public interface ListenerDeFragment {
-        public void recibirConsulta(Persona persona);
-
+        public void recibirPersona(Persona persona);
     }
 }
