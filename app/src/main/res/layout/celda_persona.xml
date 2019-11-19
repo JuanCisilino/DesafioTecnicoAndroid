@@ -42,15 +42,6 @@
                 android:text="@string/nombre_persona"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/celda_persona_textviewApellido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/celda_persona_textviewNombre"
-                android:layout_marginLeft="60dp"
-                android:layout_toRightOf="@+id/celda_persona_imageview"
-                android:text="@string/nombre_persona"
-                android:textStyle="bold" />
 
 
         </RelativeLayout>

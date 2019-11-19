@@ -12,6 +12,8 @@ public class Persona implements Serializable {
     private Picture picture = new Picture();
     @SerializedName("dob")
     private Dob edad;
+    @SerializedName("login")
+    private Login nombreUsuario;
 
     public Persona() {
     }
@@ -23,6 +25,11 @@ public class Persona implements Serializable {
 
     public Dob getEdad() {
         return edad;
+    }
+
+
+    public Login getNombreUsuario() {
+        return nombreUsuario;
     }
 
     public String getEmail() {

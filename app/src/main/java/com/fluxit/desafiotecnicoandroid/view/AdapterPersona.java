@@ -56,7 +56,7 @@ public class AdapterPersona extends RecyclerView.Adapter<AdapterPersona.ViewHold
 
     public class ViewHolderPersona extends RecyclerView.ViewHolder{
 
-        private TextView textViewNombre, textViewApellido;
+        private TextView textViewNombre;
         private ImageView imagenDePersona;
 
         public ViewHolderPersona(@NonNull View itemView) {
@@ -75,15 +75,13 @@ public class AdapterPersona extends RecyclerView.Adapter<AdapterPersona.ViewHold
         public void encontrarVariables(){
             imagenDePersona = itemView.findViewById(R.id.celda_persona_imageview);
             textViewNombre = itemView.findViewById(R.id.celda_persona_textviewNombre);
-            textViewApellido = itemView.findViewById(R.id.celda_persona_textviewApellido);
 
         }
 
         public void cargarPersona(Persona persona){
             Glide.with(imagenDePersona.getContext()).load(persona.getPicture().getThumbnail())
                     .placeholder(R.drawable.loading).into(imagenDePersona);
-            textViewNombre.setText(persona.getName().getFirst());
-            textViewApellido.setText(persona.getName().getLast());
+            textViewNombre.setText(persona.getNombreUsuario().getNombreUsuario());
         }
 
     }
