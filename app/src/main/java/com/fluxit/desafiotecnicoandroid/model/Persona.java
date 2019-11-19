@@ -1,28 +1,32 @@
 package com.fluxit.desafiotecnicoandroid.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
 public class Persona implements Serializable {
 
-    private String gender;
+    private String email;
     private Name name = new Name();
     private Picture picture = new Picture();
+    @SerializedName("dob")
+    private Dob edad;
 
     public Persona() {
     }
 
-    public Persona(String gender, Name name, Picture picture) {
-        this.gender = gender;
+    public Persona(String email, Name name, Picture picture) {
+        this.email = email;
 
     }
 
-    public String getGender() {
-        return gender;
+    public Dob getEdad() {
+        return edad;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public String getEmail() {
+        return email;
     }
 
 

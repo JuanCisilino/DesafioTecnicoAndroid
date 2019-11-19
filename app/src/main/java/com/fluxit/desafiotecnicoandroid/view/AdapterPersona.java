@@ -62,6 +62,13 @@ public class AdapterPersona extends RecyclerView.Adapter<AdapterPersona.ViewHold
         public ViewHolderPersona(@NonNull View itemView) {
             super(itemView);
             encontrarVariables();
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Persona personaSeleccionada = personaList.get(getAdapterPosition());
+                    listenerDeAdapter.informarConsulta(personaSeleccionada);
+                }
+            });
 
         }
 

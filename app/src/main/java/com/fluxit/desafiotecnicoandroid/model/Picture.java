@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class Picture implements Serializable {
 
     private String thumbnail;
+    private String large;
 
     public Picture() {
     }
 
-    public Picture(String thumbnail) {
-        this.thumbnail = thumbnail;
+
+    public String getLarge() {
+        return large;
     }
 
     public String getThumbnail() {

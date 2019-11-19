@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.fluxit.desafiotecnicoandroid.R;
 import com.fluxit.desafiotecnicoandroid.controller.ControllerPersona;
@@ -40,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements FragmentListaDePe
 
     @Override
     public void recibirPersona(Persona persona) {
-
+        Toast.makeText(this, persona.getName().getFirst(), Toast.LENGTH_LONG).show();
+        FragmentDetallePersona fragmentDetallePersona = new FragmentDetallePersona();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(fragmentDetallePersona.CLAVE_PERSONA,persona);
+        fragmentDetallePersona.setArguments(bundle);
+        pegarFragment(fragmentDetallePersona);
     }
 }
