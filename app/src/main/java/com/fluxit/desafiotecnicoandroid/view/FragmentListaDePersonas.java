@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,14 +31,17 @@ public class FragmentListaDePersonas extends Fragment implements AdapterPersona.
     private AdapterPersona adapterPersona;
     private ControllerPersona controllerPersona;
     private View view;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_lista_de_personas, container, false);
 
         contenedorRecyclerview = view.findViewById(R.id.contenedor_recycler_fragmentLista);
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
+
         adapterPersona = new AdapterPersona(this);
         controllerPersona = new ControllerPersona();
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -47,6 +51,17 @@ public class FragmentListaDePersonas extends Fragment implements AdapterPersona.
 
         contenedorRecyclerview.setLayoutManager(linearLayoutManager);
         contenedorRecyclerview.setAdapter(adapterPersona);
+
+
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                llamarLista();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
 
         return view;
     }
